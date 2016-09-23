@@ -13,7 +13,7 @@ QList<PasswordManager::Record> PasswordManager::Base::load()
     file.open(QIODevice::ReadOnly);
 
     if (!file.isOpen())
-        throw std::runtime_error{"Cannot open password base file"};
+        throw std::runtime_error{"Cannot open to load password base file"};
 
     QTextStream stream(&file);
 
@@ -31,5 +31,14 @@ QList<PasswordManager::Record> PasswordManager::Base::load()
 
 void PasswordManager::Base::save(const QList<PasswordManager::Record> &records)
 {
+    QFile file{filename};
+    file.open(QIODevice::WriteOnly);
 
+    if (!file.isOpen())
+        throw std::runtime_error{"Cannot open to save password base file"};
+
+    QTextStream stream(&file);
+
+    for (const auto &x : records)
+        stream << x.site << '\t' << x.login << '\n' << x.password;
 }
