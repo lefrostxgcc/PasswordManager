@@ -14,14 +14,16 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        passwordmanager.cpp \
-    base.cpp
+    base.cpp \
+    mainwindow.cpp
 
-HEADERS  += passwordmanager.h \
+HEADERS  += \
     record.h \
-    base.h
+    base.h \
+    mainwindow.h
 
-FORMS    += passwordmanager.ui
+FORMS    += \
+    mainwindow.ui
 
 RESOURCES += \
     resources.qrc
