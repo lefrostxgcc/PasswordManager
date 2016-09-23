@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += passwordmanager.h
 
 FORMS    += passwordmanager.ui
+
+RESOURCES += \
+    resources.qrc
