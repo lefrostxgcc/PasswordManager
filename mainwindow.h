@@ -17,6 +17,8 @@ public:
     ~MainWindow();
 
 private:
+    void init();
+
     Ui::MainWindow *ui;
     PasswordManager::Base passwordBase;
 };
