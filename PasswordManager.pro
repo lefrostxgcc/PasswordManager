@@ -11,11 +11,15 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = PasswordManager
 TEMPLATE = app
 
+CONFIG += c++11
 
 SOURCES += main.cpp\
-        passwordmanager.cpp
+        passwordmanager.cpp \
+    base.cpp
 
-HEADERS  += passwordmanager.h
+HEADERS  += passwordmanager.h \
+    record.h \
+    base.h
 
 FORMS    += passwordmanager.ui
 
