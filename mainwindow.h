@@ -2,6 +2,7 @@
 #define PASSWORDMANAGER_MAINWINDOW_H
 
 #include <QMainWindow>
+#include "base.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    PasswordManager::Base passwordBase;
 };
 
 #endif // PASSWORDMANAGER_MAINWINDOW_H
