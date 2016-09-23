@@ -22,7 +22,10 @@ QList<PasswordManager::Record> PasswordManager::Base::load()
     while (!stream.atEnd())
     {
         Record temp;
-        stream >> temp.site >> temp.login >> temp.password;
+        QStringList lineList = stream.readLine().split('\t');
+        temp.site = lineList[0];
+        temp.login = lineList[1];
+        temp.password = lineList[2];
         records.push_back(temp);
     }
 
@@ -40,5 +43,5 @@ void PasswordManager::Base::save(const QList<PasswordManager::Record> &records)
     QTextStream stream(&file);
 
     for (const auto &x : records)
-        stream << x.site << '\t' << x.login << '\n' << x.password;
+        stream << x.site << '\t' << x.login << '\t' << x.password << '\n';
 }

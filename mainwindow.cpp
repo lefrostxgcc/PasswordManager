@@ -67,6 +67,7 @@ QLabel *MainWindow::createLabelSite()
 QPushButton *MainWindow::createButtonLogin()
 {
     QPushButton *button = new QPushButton;
+    button->setText(ui->pushButtonLoginTemplate->text());
     button->setMinimumSize(ui->pushButtonLoginTemplate->minimumSize());
     button->setMaximumSize(ui->pushButtonLoginTemplate->maximumSize());
     button->setFont(ui->pushButtonLoginTemplate->font());
@@ -77,6 +78,7 @@ QPushButton *MainWindow::createButtonLogin()
 QPushButton *MainWindow::createButtonPassword()
 {
     QPushButton *button = new QPushButton;
+    button->setText(ui->pushButtonPasswordTemplate->text());
     button->setMinimumSize(ui->pushButtonPasswordTemplate->minimumSize());
     button->setMaximumSize(ui->pushButtonPasswordTemplate->maximumSize());
     button->setFont(ui->pushButtonPasswordTemplate->font());
