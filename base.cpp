@@ -1,4 +1,6 @@
 #include "base.h"
+#include <QFile>
+#include <QTextStream>
 
 PasswordManager::Base::Base(const QString &passwordFilename)
     : filename(passwordFilename)
@@ -7,7 +9,24 @@ PasswordManager::Base::Base(const QString &passwordFilename)
 
 QList<PasswordManager::Record> PasswordManager::Base::load()
 {
-    return {};
+    QFile file{filename};
+    file.open(QIODevice::ReadOnly);
+
+    if (!file.isOpen())
+        throw std::runtime_error{"Cannot open password base file"};
+
+    QTextStream stream(&file);
+
+    QList<Record> records;
+
+    while (!stream.atEnd())
+    {
+        Record temp;
+        stream >> temp.site >> temp.login >> temp.password;
+        records.push_back(temp);
+    }
+
+    return records;
 }
 
 void PasswordManager::Base::save(const QList<PasswordManager::Record> &records)
