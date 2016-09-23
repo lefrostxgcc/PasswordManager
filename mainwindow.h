@@ -16,6 +16,10 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+    void copyLoginToClipbord(int siteIndex);
+    void copyPasswordToClipBord(int siteIndex);
+
 private:
     void init();
 

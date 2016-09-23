@@ -7,11 +7,22 @@ MainWindow::MainWindow(QWidget *parent) :
     passwordBase{"records.txt"}
 {
     ui->setupUi(this);
+    init();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::copyLoginToClipbord(int siteIndex)
+{
+
+}
+
+void MainWindow::copyPasswordToClipBord(int siteIndex)
+{
+
 }
 
 void MainWindow::init()
