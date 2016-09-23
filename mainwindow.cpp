@@ -57,15 +57,29 @@ void MainWindow::init()
 
 QLabel *MainWindow::createLabelSite()
 {
-    return {};
+    QLabel *label = new QLabel;
+    label->setOpenExternalLinks(true);
+    label->setFont(ui->labelSiteTemplate->font());
+
+    return label;
 }
 
 QPushButton *MainWindow::createButtonLogin()
 {
-    return {};
+    QPushButton *button = new QPushButton;
+    button->setMinimumSize(ui->pushButtonLoginTemplate->minimumSize());
+    button->setMaximumSize(ui->pushButtonLoginTemplate->maximumSize());
+    button->setFont(ui->pushButtonLoginTemplate->font());
+
+    return button;
 }
 
 QPushButton *MainWindow::createButtonPassword()
 {
-    return {};
+    QPushButton *button = new QPushButton;
+    button->setMinimumSize(ui->pushButtonPasswordTemplate->minimumSize());
+    button->setMaximumSize(ui->pushButtonPasswordTemplate->maximumSize());
+    button->setFont(ui->pushButtonPasswordTemplate->font());
+
+    return button;
 }
