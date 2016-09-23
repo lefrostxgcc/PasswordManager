@@ -15,7 +15,8 @@ TEMPLATE = app
 SOURCES += main.cpp\
         passwordmanager.cpp
 
-HEADERS  += passwordmanager.h
+HEADERS  += passwordmanager.h \
+    record.h
 
 FORMS    += passwordmanager.ui
 
