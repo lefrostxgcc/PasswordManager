@@ -2,6 +2,8 @@
 #define PASSWORDMANAGER_MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QLabel>
+#include <QPushButton>
 #include "base.h"
 
 namespace Ui {
@@ -22,9 +24,13 @@ public slots:
 
 private:
     void init();
+    QLabel      *createLabelSite();
+    QPushButton *createButtonLogin();
+    QPushButton *createButtonPassword();
 
     Ui::MainWindow *ui;
     PasswordManager::Base passwordBase;
+    QList<PasswordManager::Record> records;
 };
 
 #endif // PASSWORDMANAGER_MAINWINDOW_H
