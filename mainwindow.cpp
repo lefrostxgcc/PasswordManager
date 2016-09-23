@@ -41,7 +41,7 @@ void MainWindow::init()
     QSignalMapper *passMapper     = new QSignalMapper(this);
 
     connect(loginMapper,    SIGNAL(mapped(int)), this, SLOT(copyLoginToClipbord(int))   );
-    connect(passMapper,     SIGNAL(mapped(int)), this, SLOT(copyPasswordToClipBord(int)));
+    connect(passMapper,     SIGNAL(mapped(int)), this, SLOT(copyPasswordToClipbord(int)));
 
     for (int curRecord{}; curRecord < records.size(); ++curRecord)
     {
