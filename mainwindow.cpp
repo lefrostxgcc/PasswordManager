@@ -43,22 +43,22 @@ void MainWindow::init()
     connect(loginMapper,    SIGNAL(mapped(int)), this, SLOT(copyLoginToClipbord(int))   );
     connect(passMapper,     SIGNAL(mapped(int)), this, SLOT(copyPasswordToClipBord(int)));
 
-    for (int recordIndex{}; recordIndex < records.size(); ++recordIndex)
+    for (int curRecord{}; curRecord < records.size(); ++curRecord)
     {
         QLabel      *site       = createLabelSite();
         QPushButton *login      = createButtonLogin();
         QPushButton *password   = createButtonPassword();
 
-        site->setText(records[recordIndex].site);
+        site->setText("<a href=\""+ records[curRecord].siteAddress + "\">" + records[curRecord].siteName + "</a>");
         connect(login,      SIGNAL(clicked()), loginMapper, SLOT(map()));
         connect(password,   SIGNAL(clicked()), passMapper,  SLOT(map()));
 
-        loginMapper->setMapping(login,    recordIndex);
-        passMapper ->setMapping(password, recordIndex);
+        loginMapper->setMapping(login,    curRecord);
+        passMapper ->setMapping(password, curRecord);
 
-        ui->gridLayout->addWidget(site,     recordIndex + 1, 0);
-        ui->gridLayout->addWidget(login,    recordIndex + 1, 1);
-        ui->gridLayout->addWidget(password, recordIndex + 1, 2);
+        ui->gridLayout->addWidget(site,     curRecord + 1, 0);
+        ui->gridLayout->addWidget(login,    curRecord + 1, 1);
+        ui->gridLayout->addWidget(password, curRecord + 1, 2);
     }
 }
 

@@ -7,7 +7,8 @@ namespace PasswordManager
 {
     struct Record
     {
-        QString site;
+        QString siteAddress;
+        QString siteName;
         QString login;
         QString password;
     };
