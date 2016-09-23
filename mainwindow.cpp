@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QSignalMapper>
+#include <QClipboard>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,6 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
     passwordBase{"records.txt"}
 {
     ui->setupUi(this);
+    ui->labelSiteTemplate->setVisible(false);
+    ui->pushButtonLoginTemplate->setVisible(false);
+    ui->pushButtonPasswordTemplate->setVisible(false);
+
     init();
 }
 
@@ -18,12 +23,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::copyLoginToClipbord(int siteIndex)
 {
-
+    QApplication::clipboard()->setText(records[siteIndex].login);
 }
 
 void MainWindow::copyPasswordToClipBord(int siteIndex)
 {
-
+    QApplication::clipboard()->setText(records[siteIndex].password);
 }
 
 void MainWindow::init()
