@@ -20,7 +20,7 @@ public:
 
 public slots:
     void copyLoginToClipbord(int siteIndex);
-    void copyPasswordToClipBord(int siteIndex);
+    void copyPasswordToClipbord(int siteIndex);
 
 private:
     void init();

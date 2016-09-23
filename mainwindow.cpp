@@ -9,9 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
     passwordBase{"records.txt"}
 {
     ui->setupUi(this);
-    ui->labelSiteTemplate->setVisible(false);
-    ui->pushButtonLoginTemplate->setVisible(false);
-    ui->pushButtonPasswordTemplate->setVisible(false);
+
+    ui->labelSiteTemplate           ->setVisible(false);
+    ui->pushButtonLoginTemplate     ->setVisible(false);
+    ui->pushButtonPasswordTemplate  ->setVisible(false);
 
     init();
 }
@@ -26,9 +27,10 @@ void MainWindow::copyLoginToClipbord(int siteIndex)
     QApplication::clipboard()->setText(records[siteIndex].login);
 }
 
-void MainWindow::copyPasswordToClipBord(int siteIndex)
+void MainWindow::copyPasswordToClipbord(int siteIndex)
 {
     QApplication::clipboard()->setText(records[siteIndex].password);
+    close();
 }
 
 void MainWindow::init()
@@ -43,9 +45,9 @@ void MainWindow::init()
 
     for (int recordIndex{}; recordIndex < records.size(); ++recordIndex)
     {
-        QLabel      *site = createLabelSite();
-        QPushButton *login = createButtonLogin();
-        QPushButton *password = createButtonPassword();
+        QLabel      *site       = createLabelSite();
+        QPushButton *login      = createButtonLogin();
+        QPushButton *password   = createButtonPassword();
 
         site->setText(records[recordIndex].site);
         connect(login,      SIGNAL(clicked()), loginMapper, SLOT(map()));
