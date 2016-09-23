@@ -14,10 +14,12 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        passwordmanager.cpp
+        passwordmanager.cpp \
+    base.cpp
 
 HEADERS  += passwordmanager.h \
-    record.h
+    record.h \
+    base.h
 
 FORMS    += passwordmanager.ui
 
